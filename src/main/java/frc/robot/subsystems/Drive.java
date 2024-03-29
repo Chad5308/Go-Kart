@@ -1,14 +1,8 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
-
-import edu.wpi.first.wpilibj.AnalogGyro;
-import edu.wpi.first.wpilibj.AnalogInput;
-import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorController;
-import edu.wpi.first.wpilibj.motorcontrol.PWMVictorSPX;
-import edu.wpi.first.wpilibj.motorcontrol.VictorSP;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Drive extends SubsystemBase{
@@ -17,6 +11,8 @@ private  VictorSPX left2;
 
 private  VictorSPX right1;
 private  VictorSPX right2;
+
+private SpeedControllerGroup leftMotor;
 
 
 private DifferentialDrive drive;
@@ -42,7 +38,7 @@ right2.follow(right1);
 
 
 
-drive = new DifferentialDrive((MotorController)left1, (MotorController)right1);
+drive = new DifferentialDrive(left1, right1);
 
 }
 

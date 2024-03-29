@@ -18,7 +18,7 @@ public class DriveCommand extends Command{
 
     @Override
     public void execute(){
-        drive.drive(controller.getLeftY(), controller.getRightX(), inPlace);
+        drive.drive(-1*controller.getLeftY(), controller.getRightX(), inPlace);
     }
 
 
