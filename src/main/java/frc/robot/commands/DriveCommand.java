@@ -13,6 +13,7 @@ public class DriveCommand extends Command{
     public DriveCommand(Drive drive){
         this.drive = drive;
         controller = new CommandXboxController(0);
+        addRequirements(drive);
     }
 
 
