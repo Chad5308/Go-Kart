@@ -16,7 +16,6 @@ public DriveCommand driveCommand = new DriveCommand(drive);
   public RobotContainer() {
     drive.setDefaultCommand(driveCommand);
 
-
     configureBindings();
   }
 
@@ -26,6 +25,11 @@ public DriveCommand driveCommand = new DriveCommand(drive);
 
 driveCommand.controller.x().onTrue(Commands.runOnce(() -> {driveCommand.inPlace();}));
 
+driveCommand.controller.povUp().onTrue(Commands.runOnce(() -> {driveCommand.increaseSpeed();}));
+driveCommand.controller.povDown().onTrue(Commands.runOnce(() -> {driveCommand.decreaseSpeed();}));
+driveCommand.controller.povLeft().onTrue(Commands.runOnce(() -> {driveCommand.cruiseControl();}));
+driveCommand.controller.povRight().onTrue(Commands.runOnce(() -> {driveCommand.resume();}));
+driveCommand.controller.axisGreaterThan(3, 0.25).onTrue(Commands.runOnce(() -> {driveCommand.cancel();}));
 
   }
 
