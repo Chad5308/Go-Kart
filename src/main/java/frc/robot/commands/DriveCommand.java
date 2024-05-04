@@ -2,13 +2,15 @@ package frc.robot.commands;
 
 import edu.wpi.first.math.trajectory.TrajectoryUtil;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.button.CommandJoystick;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.subsystems.Drive;
 
 public class DriveCommand extends Command{
 
     public Drive drive;
-    public CommandXboxController controller;
+    // public CommandXboxController controller;
+    public CommandJoystick controller;
     public boolean inPlace = false;
 
     public double cruiseXSpeed = 0;
@@ -16,7 +18,8 @@ public class DriveCommand extends Command{
 
     public DriveCommand(Drive drive){
         this.drive = drive;
-        controller = new CommandXboxController(0);
+        // controller = new CommandXboxController(0);
+        controller = new CommandJoystick(0);
         addRequirements(drive);
     }
 
@@ -25,10 +28,17 @@ public class DriveCommand extends Command{
     public void execute(){
 
 
-        if(cruiseControl){
-            drive.drive(cruiseXSpeed, -1*controller.getRightX(), inPlace);
+        // if(cruiseControl){
+        //     drive.drive(cruiseXSpeed, -1*controller.getRightX(), inPlace);
+        // }else{
+        //     drive.drive(-1*controller.getLeftY(), -1*controller.getRightX(), inPlace);
+        // }
+
+
+         if(cruiseControl){
+            drive.drive(cruiseXSpeed, -1*controller.getX(), inPlace);
         }else{
-            drive.drive(-1*controller.getLeftY(), -1*controller.getRightX(), inPlace);
+            drive.drive(-1*controller.getY(), -1*controller.getX(), inPlace);
         }
     }
 
@@ -62,6 +72,12 @@ public class DriveCommand extends Command{
       inPlace = !inPlace;
     }
 
+    public void inPlaceFalse(){
+        inPlace = false;
+    }
+    public void inPlaceTrue(){
+        inPlace = true;
+    }
 
     
 }
