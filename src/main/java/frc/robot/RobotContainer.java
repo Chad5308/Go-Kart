@@ -29,7 +29,8 @@ driveCommand.controller.povUp().onTrue(Commands.runOnce(() -> {driveCommand.incr
 driveCommand.controller.povDown().onTrue(Commands.runOnce(() -> {driveCommand.decreaseSpeed();}));
 driveCommand.controller.povLeft().onTrue(Commands.runOnce(() -> {driveCommand.cruiseControl();}));
 driveCommand.controller.povRight().onTrue(Commands.runOnce(() -> {driveCommand.resume();}));
-driveCommand.controller.axisGreaterThan(3, 0.25).onTrue(Commands.runOnce(() -> {driveCommand.cancel();}));
+// driveCommand.controller.axisGreaterThan(3, 0.25).onTrue(Commands.runOnce(() -> {driveCommand.cancel();}));
+driveCommand.controller.b().onTrue(Commands.runOnce(() -> {driveCommand.cancel();}));
 
   }
 

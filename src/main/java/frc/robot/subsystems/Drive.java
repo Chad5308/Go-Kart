@@ -12,6 +12,8 @@ private  WPI_VictorSPX left2;
 private  WPI_VictorSPX right1;
 private  WPI_VictorSPX right2;
 
+private double ramp = 1;
+
 
 
 private DifferentialDrive drive;
@@ -34,6 +36,13 @@ right2 = new WPI_VictorSPX(3);
 right2.setInverted(true);
 
 right2.follow(right1);
+
+// right1.configOpenloopRamp(ramp);
+// right2.configOpenloopRamp(ramp);
+// left1.configOpenloopRamp(ramp);
+// left2.configOpenloopRamp(ramp);
+
+
 
 
 
